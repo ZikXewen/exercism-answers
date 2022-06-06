@@ -1,7 +1,7 @@
 export class Triangle {
-  public isEquilateral: boolean = false
-  public isIsosceles: boolean = false
-  public isScalene: boolean = false
+  public readonly isEquilateral: boolean = false
+  public readonly isIsosceles: boolean = false
+  public readonly isScalene: boolean = false
   constructor(...sides: number[]) {
     const tri: number[] = sides.slice(0, 3).sort()
     if (tri[0] === 0 || tri[0] + tri[1] <= tri[2]) return

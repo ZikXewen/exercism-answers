@@ -1,5 +1,5 @@
 export class SimpleCipher {
-  key: string
+  public readonly key: string
   private keyArray: number[]
   private keyLength: number
   constructor(key?: string) {

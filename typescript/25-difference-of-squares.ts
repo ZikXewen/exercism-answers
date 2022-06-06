@@ -1,8 +1,8 @@
 export class Squares {
   private count: number
-  public sumOfSquares: number
-  public squareOfSum: number
-  public difference: number
+  public readonly sumOfSquares: number
+  public readonly squareOfSum: number
+  public readonly difference: number
   constructor(count: number) {
     this.count = count
     this.sumOfSquares =
