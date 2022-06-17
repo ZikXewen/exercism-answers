@@ -4,7 +4,6 @@ pub enum Error {
     GameComplete,
 }
 
-#[derive(Debug, Default)]
 pub struct BowlingGame {
     throws: Vec<u16>,
     second: bool,
@@ -12,7 +11,10 @@ pub struct BowlingGame {
 
 impl BowlingGame {
     pub fn new() -> Self {
-        Self::default()
+        Self {
+            throws: Vec::with_capacity(21),
+            second: false,
+        }
     }
 
     pub fn roll(&mut self, pins: u16) -> Result<(), Error> {
@@ -33,7 +35,7 @@ impl BowlingGame {
         let mut sum = 0;
         for _ in 1..=10 {
             sum += *self.throws.get(cr)? + *self.throws.get(cr + 1)?;
-            if self.throws[cr] == 10 || self.throws[cr] + self.throws[cr + 1] == 10 {
+            if self.throws[cr] + self.throws[cr + 1] >= 10 {
                 sum += *self.throws.get(cr + 2)?;
             }
             cr += if self.throws[cr] == 10 { 1 } else { 2 };
